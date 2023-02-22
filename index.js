@@ -40,9 +40,13 @@ Aşağıdakileri yapmak için aşağıdaki kopyalama işlevini kullanın:
 */
 
 
-function kopyala(/*kod buraya*/){
-  /*kod buraya*/
+function kopyala(orijinalTatlar){
+  let arg0 = [];
+  arg0 = orijinalTatlar;
+
+  return arg0;
 }
+
 
 
 /* Görev 2:
@@ -56,8 +60,12 @@ Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları ka
 */
 
 
-function dizi25Cesitmi(/*kod buraya*/){
-  /*kod buraya*/
+function dizi25Cesitmi(myArray0){
+  if (myArray0.length === 25) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 
@@ -74,8 +82,10 @@ Aşağıdakileri yapmak için cesitEkle işlevini kullanın:
 */
 
 
-function cesitEkle(/*kod buraya*/){
-  /*kod buraya*/
+function cesitEkle(tatlar, myString0){
+  tatlar.unshift(myString0);
+
+  return tatlar;
 }
 
 
@@ -92,8 +102,9 @@ Aşağıdakileri yapmak için sonCesitiKaldir işlevini kullanın:
 */
 
 
-function sonCesitiKaldir(/*kod buraya*/){
-  /*kod buraya*/
+function sonCesitiKaldir(tatlar){
+  tatlar.pop();
+  return tatlar;
 }
 
 
@@ -108,8 +119,8 @@ Aşağıdakileri yapmak için aşağıdaki indekstekiCesitiGetir işlevini kulla
    Örneğin: indekstekiCesitiGetir(orijinalTatlar, 2) çalıştırılmasıyla, Kakule'in başarıyla eklendiği varsayarsak sonuç "Ceviz" olucaktır.
 */
 
-function indekstekiCesitiGetir(/*kod buraya*/){
-  /*kod buraya*/
+function indekstekiCesitiGetir(tatlar, myPos){
+  return tatlar[myPos];
 }
 
 
@@ -128,8 +139,14 @@ Aşağıdakileri yapmak için ismeGoreCesitCikar işlevini kullanın:
   İPUCU: Bunun için .splice() kullanabilirsiniz.
 */
 
-function ismeGoreCesitCikar(/*kod buraya*/){
-  /*kod buraya*/
+function ismeGoreCesitCikar(tatlar, myString){
+  for (let index = 0; index < tatlar.length; index++) {
+    if (tatlar[index] === myString) {
+      tatlar.splice(index, 1)
+    }
+  }
+
+  return tatlar;
 }
 
 
@@ -154,8 +171,14 @@ Aşağıdakileri yapmak için ismeGoreFiltrele işlevini kullanın:
 */
 
 
-function ismeGoreFiltrele(/*kod buraya*/){
-  /*kod buraya*/
+function ismeGoreFiltrele(tatlar, myString){
+  let newArray = []
+  for (let i = 0; i < tatlar.length; i++) {
+    if (tatlar[i].includes(myString)) {
+      newArray.push(tatlar[i]);
+    }
+  }
+  return newArray;
 }
 
 
@@ -172,9 +195,17 @@ Aşağıdakileri yapmak için ortalamaKelimeSayisi işlevini kullanın:
    Örneğin: ortalamaKelimeSayisi(orijinalTatlar) 0 ile 2 arasında bir sayı döndürmelidir.
 */
 
-function ortalamaKelimeSayisi(/*kod buraya*/){
-  /*kod buraya*/
+function ortalamaKelimeSayisi(orijinalTatlar){
+  let newArray = [];
+  for (let index = 0; index < orijinalTatlar.length; index++) {
+    newArray.push(orijinalTatlar[index].split(" "));
+    
+  }
+  console.log(newArray);
+  return newArray.length / orijinalTatlar.length;
 }
+console.log(ortalamaKelimeSayisi(orijinalTatlar));
+
 
 
 /* ALIŞTIRMA 2:
