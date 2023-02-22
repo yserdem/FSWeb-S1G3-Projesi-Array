@@ -29,6 +29,8 @@ const orijinalTatlar = [
   "Vanilya",
 ];
 
+
+
 /* Görev 1: Diziyi kopyalama!
 Orijinal tatların bulunduğu toplam 25 aromanın olduğu bir dizimiz var (yukarıya bakın). Bu görevde, bu dizi'ye veri yazma ve bu diziden veri okuma işlemleri yapacağız.
 Tüm bu değişiklikleri yaparken, gerçek, orijinal 25 lezzetin listesini kaybetmek istemiyoruz. Bu yüzden orijinal diziyi kopyalamamız gerekmektedir!
@@ -198,8 +200,12 @@ Aşağıdakileri yapmak için ortalamaKelimeSayisi işlevini kullanın:
 function ortalamaKelimeSayisi(orijinalTatlar){
   let newArray = [];
   for (let index = 0; index < orijinalTatlar.length; index++) {
-    newArray.push(orijinalTatlar[index].split(" "));
+    let kelime = orijinalTatlar[index].split(" ");
     
+    for(let i = 0; i < kelime.length; i++){
+      newArray.push(kelime[i]);
+          
+    }
   }
   console.log(newArray);
   return newArray.length / orijinalTatlar.length;
@@ -220,48 +226,81 @@ Aşağıdakileri yapmak için rastgeleTatlar işlevini ve yeni dizileri kullanı
   Örneğin: rastgeleTatlar(orijinalTatlar, yeniTatlar, mevsimlikTatlar, bolgeselTatlar) çalıştırıldığında ["Kestane", "Ballı Badem,"..."Hindistan Cevizi", "Kuru üzüm"].
 */
 
+const yeniTatlar = [
+  "Badem",
+  "Ballı Badem",
+  "Fıstık Ezmesi",
+  "Profiterol",
+  "Madlen Çikolata"
+]
 
-function rastgeleTatlar(/*kod buraya*/){
-  /*kod buraya*/
+const mevsimlikTatlar = [
+"Pekan",
+"Kaju",
+"Çikolatalı Mousse",
+"Fransız Vanilyası",
+"Yumurta",
+"Alman çikolatası",
+"Kek üzerine krema",
+"Hindistan Cevizi",
+"Kaymaklı Biskuvi",
+"Beyaz Çikolata",
+"Mango"
+]
+
+const bolgeselTatlar = [
+"Kaymak",
+"Karpuz",
+"Karadut",
+"Turunç",
+"Portakal",
+"Yogurt",
+"Krem Peynir",
+"Kakao",
+"Karamel macchiato",
+"Kuru üzüm",
+"Peynir",
+"Karamel"
+]
+
+function rastgeleTatlar(arg0, arg1, arg2, arg3){
+  var myRandom = 0;
+  let myArray = [];
+  for (let i = 0; i < 25; i++) {
+    myRandom = Math.floor(Math.random() * 4);
+    if (myRandom === 0) {
+      
+      myRandom = Math.floor(Math.random() * arg0.length);
+      myArray.push(arg0[myRandom]);
+      arg0.splice(arg0[myRandom], 1);
+      
+    }else if (myRandom === 1) {
+      
+      myRandom = Math.floor(Math.random() * arg1.length);
+      myArray.push(arg1[myRandom]);
+      arg1.splice(arg1[myRandom], 1);
+      
+    }else if (myRandom === 2) {
+      
+      myRandom = Math.floor(Math.random() * arg2.length);
+      myArray.push(arg2[myRandom]);
+      arg2.splice(arg2[myRandom], 1);
+      
+    }else if (myRandom === 3) {
+      
+      myRandom = Math.floor(Math.random() * arg3.length);
+      myArray.push(arg3[myRandom]);
+      arg3.splice(arg3[myRandom], 1);
+      
+    }
+  }
+  return myArray;
 }
 
+console.log(rastgeleTatlar(orijinalTatlar,yeniTatlar,mevsimlikTatlar, bolgeselTatlar))
+
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
-// const yeniTatlar = [
-//   "Badem",
-//   "Ballı Badem",
-//   "Fıstık Ezmesi",
-//   "Profiterol",
-//   "Madlen Çikolata"
-// ]
 
-// const mevsimlikTatlar = [
-// "Pekan",
-// "Kaju",
-// "Çikolatalı Mousse",
-// "Fransız Vanilyası",
-// "Yumurta",
-// "Alman çikolatası",
-// "Kek üzerine krema",
-// "Hindistan Cevizi",
-// "Kaymaklı Biskuvi",
-// "Beyaz Çikolata",
-// "Mango"
-// ]
-
-// const bolgeselTatlar = [
-// "Kaymak",
-// "Karpuz",
-// "Karadut",
-// "Turunç",
-// "Portakal",
-// "Yogurt",
-// "Krem Peynir",
-// "Kakao",
-// "Karamel macchiato",
-// "Kuru üzüm",
-// "Peynir",
-// "Karamel"
-// ]
 
 
 /* Lütfen bu satırın altındaki hiçbir şeyi değiştirmeyin */
