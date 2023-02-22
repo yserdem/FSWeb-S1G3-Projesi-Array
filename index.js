@@ -43,9 +43,7 @@ Aşağıdakileri yapmak için aşağıdaki kopyalama işlevini kullanın:
 
 
 function kopyala(orijinalTatlar){
-  let arg0 = [];
-  arg0 = orijinalTatlar;
-
+  let arg0 = [...orijinalTatlar];
   return arg0;
 }
 
